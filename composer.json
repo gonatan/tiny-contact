@@ -1,6 +1,6 @@
 {
-    "name": "magna/tinyaddress",
-    "description": "A tiny address management application.",
+    "name": "gonatan/tiny-contact",
+    "description": "A tiny contact management application.",
     "type": "project",
     "authors": [
         {
