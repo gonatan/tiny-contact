@@ -1,0 +1,47 @@
+/* copied from TinyWiki */
+body,table,input{font-family:monospace;font-size:13px;margin:0}
+input,textarea{border:1px solid #969696;margin:3px;font-size:13px;width:100%}
+a:link{color:#E61428}
+a:visited{color:#820A14}
+del{color:green}
+del a:link{color:blue}
+code{background:#EEE;color:#444;display:block;margin:0 15px;padding:1px 15px}
+h1{font-size:2em};h2{font-size:1.4em};h3{font-size:1.1em}
+article,nav,footer{padding:20px 0}
+footer{border-top:2px solid #969696;text-align:right}
+
+/* new styles */
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+nav li {
+    list-style: none;
+    margin: 13px;
+}
+
+table {
+    width: 100%;
+}
+tr:hover {
+}
+td, th {
+    border: dashed black;
+    border-width: 1px 0 1px 0;
+    padding: 4px;
+    vertical-align: top;
+}
+
+form.address table {
+    width: 100%;
+}
+form.address table th.label,
+form.address table td.label {
+    text-align: right;
+}
+form.address table input {
+    width: 90%;
+}
+form label {
+    line-height: 25px;
+}

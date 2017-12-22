@@ -1,0 +1,44 @@
+<div class="column grid_1">
+    <nav>
+        <ul>
+            <li><a href="index" title="list addresses"><img src="ui/img/ico_address_list.png" alt="list addresses"></a></li>
+            <li><a href="search" title="find address"><img src="ui/img/ico_address_find.png" alt="find address"></a></li>
+            <li><a href="form/0" title="add address"><img src="ui/img/ico_address_add.png" alt="add address"></a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="column grid_11">
+    <table>
+    <?php foreach ($rows as $i => $row) { ?>
+        <?php if (!$i) { ?>
+        <tr>
+            <?php foreach ($row as $key => $val) { ?>
+            <th><?= $key ?></th>
+            <?php } ?>
+            <th>vCard</th>
+            <th>API</th>
+            <th>DEL</th>
+        </tr>
+        <?php } ?>
+        <tr>
+        <?php foreach ($row as $key => $val) { ?>
+            <?php if ('id' === $key) { ?>
+            <td><a href="form/<?= $val ?>" title="edit address"><img src="ui/img/ico_address_edit.png" alt="edit address"></a></td>
+            <?php } elseif ('email' === $key && $row['email']) { ?>
+            <td><a href="mailto:<?= $row['email'] ?>" title="write email: <?= $row['email'] ?>"><img src="ui/img/ico_address_mail.png" alt="write email: <?= $row['email'] ?>"></a></td>
+            <?php } elseif ('phone' === $key && $row['phone']) { ?>
+            <td><a href="tel:<?= $row['phone'] ?>" title="call phone: <?= $row['phone'] ?>"><img src="ui/img/ico_address_phone.png" alt="call phone: <?= $row['phone'] ?>"></a></td>
+            <?php } elseif ('mobile' === $key && $row['mobile']) { ?>
+            <td><a href="tel:<?= $row['mobile'] ?>" title="call mobile: <?= $row['mobile'] ?>"><img src="ui/img/ico_address_mobile.png" alt="call mobile: <?= $row['mobile'] ?>"></a></td>
+            <?php } else { ?>
+            <td><?= $val ?></td>
+            <?php } ?>
+        <?php } ?>
+            <td><a href="vcard/<?= $row['id'] ?>" title="download vCard"><img src="ui/img/ico_address_vcard.png" alt="download vCard"></a></td>
+            <td><a href="api/<?= $row['id'] ?>" title="get REST"><img src="ui/img/ico_address_rest.png" alt="get REST"></a></td>
+            <td><a href="delete/<?= $row['id'] ?>" title="delete address"><img src="ui/img/ico_address_delete.png" alt="delete address"></a></td>
+        </tr>
+    <?php } ?>
+    </table>
+</div>
