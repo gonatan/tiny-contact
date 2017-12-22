@@ -1,16 +1,15 @@
 # tiny-contact
-Tiny contact management tool.
+A tiny contact management tool.
 
-tiny-contact ist eine kleine Anwendung aus den tiny-contact-tools um Kontakte zu verwalten.
+tiny-contact ist eine kleine Anwendung aus den tiny-tools um Kontakte zu verwalten.
 Als Framework wird bcosca/fatfree-core eingesetzt.
-Die Adressen werden in einer SQLite-Datenbank gespeichert.
+Die Kontakte werden in einer SQLite-Datenbank gespeichert.
 Man kann sie mithilfe von jeroendesloovere/vcard auch als vCards herunterladen.
 Damit können sie wie die Seiten des TinyWiki mit Git versioniert werden.
 Zudem wird monolog für das Logging verwendet.
 Anhängigkeiten von Libraries werden mittels Composer gepflegt.
 
-Icons: https://icons8.com/icon/free-pack/
-36px
+Icons (36px) are from https://icons8.com/icon/free-pack/.
 
 ## Links
 
@@ -18,7 +17,7 @@ Icons: https://icons8.com/icon/free-pack/
 
 ## From scratch
 
-    mkdir address && cd address
+    mkdir tiny-contact && cd tiny-contact
     composer.phar require php
     composer.phar require bcosca/fatfree-core
     composer.phar require jeroendesloovere/vcard
