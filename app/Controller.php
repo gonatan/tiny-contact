@@ -19,10 +19,9 @@ class Controller extends AbstractController
 
         // == prepare model
         try {
-            $filename = $this->f3->get('DB');
-            $database = new Sqlite($filename);
-            $database->open($filename);
-            $f3->set('model', new ContactModel($f3, $database));
+            $filename = $f3->get('DB');
+            $conn = new Sqlite($f3, $filename);
+            $f3->set('model', new ContactModel($f3, $conn));
         } catch (Exception $e) {
             $f3->logger->addCritical($e->getMessage());
             $f3->logger->addCritical($e->getTraceAsString());

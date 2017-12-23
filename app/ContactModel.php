@@ -12,11 +12,11 @@ class ContactModel extends Model
 {
     /**
      * @param Base $f3 F3 base object
-     * @param DatabaseConnection $database
+     * @param DatabaseConnection $conn
      */
-    public function __construct(Base $f3, DatabaseConnection $database)
+    public function __construct(Base $f3, DatabaseConnection $conn)
     {
-        parent::__construct($f3, $database);
+        parent::__construct($f3, $conn);
     }
 
     /**
@@ -54,7 +54,7 @@ class ContactModel extends Model
         $values = implode(', ', $values);
         $query = "insert into adressen ($keys) values ($values)";
         $this->f3->logger->addDebug($query);
-        return $this->db->exec($query);
+        return $this->conn->db->exec($query);
     }
 
     /**
@@ -71,7 +71,8 @@ class ContactModel extends Model
         $set = implode(', ', $set);
         $id = $row['id'];
         $query = "update adressen set $set where id = $id";
-        return $this->db->exec($query);
+        $this->f3->logger->addDebug($query);
+        return $this->conn->db->exec($query);
     }
 
     /**
@@ -82,7 +83,8 @@ class ContactModel extends Model
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
         $query = "delete from adressen where id = $id";
-        return $this->db->exec($query);
+        $this->f3->logger->addDebug($query);
+        return $this->conn->db->exec($query);
     }
 
     /**
@@ -93,7 +95,8 @@ class ContactModel extends Model
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
         $query = 'select * from adressen order by lastname';
-        $result = $this->db->query($query);
+        $this->f3->logger->addDebug($query);
+        $result = $this->conn->db->query($query);
         $rows = [];
         while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
             $rows[] = $row;
@@ -120,6 +123,7 @@ class ContactModel extends Model
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
         $query = "select * from adressen where id = $id";
-        return $this->db->querySingle($query, true);
+        $this->f3->logger->addDebug($query);
+        return $this->conn->db->querySingle($query, true);
     }
 }

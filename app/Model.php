@@ -11,51 +11,26 @@
 class Model
 {
     /**
-     * @var Base $f3
+     * @var Base
      */
     protected $f3;
 
     /**
-     * @var SQLite3 $db
+     * @var DatabaseConnection
      */
-    protected $db;
+    protected $conn;
 
     /**
      * @param Base $f3 F3 base object
+     * @param DatabaseConnection $conn
      */
-    public function __construct(Base $f3)
+    public function __construct(Base $f3, DatabaseConnection $conn)
     {
         $this->f3 = $f3;
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
         if (extension_loaded('sqlite')) {
             throw new Exception("SQLite is not available");
         }
-    }
-
-    /**
-     */
-    public function __destruct()
-    {
-        $this->f3->logger->addDebug(__METHOD__, func_get_args());
-        $this->close();
-    }
-
-    /**
-     */
-    public function open($filename)
-    {
-        if (!is_readable($filename)) {
-            throw new Exception("$filename is not readable");
-        }
-        $this->db = new SQLite3($filename, SQLITE3_OPEN_READWRITE);
-    }
-
-    /**
-     */
-    public function close()
-    {
-        $this->f3->logger->addDebug(__METHOD__, func_get_args());
-        $this->db->close();
-        $this->db = null;
+        $this->conn = $conn;
     }
 }
