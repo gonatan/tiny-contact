@@ -52,7 +52,7 @@ class ContactModel extends Model
         }
         $keys = implode(', ', $keys);
         $values = implode(', ', $values);
-        $query = "insert into adressen ($keys) values ($values)";
+        $query = "insert into contact ($keys) values ($values)";
         $this->f3->logger->addDebug($query);
         return $this->conn->db->exec($query);
     }
@@ -70,7 +70,7 @@ class ContactModel extends Model
         }
         $set = implode(', ', $set);
         $id = $row['id'];
-        $query = "update adressen set $set where id = $id";
+        $query = "update contact set $set where id = $id";
         $this->f3->logger->addDebug($query);
         return $this->conn->db->exec($query);
     }
@@ -82,7 +82,7 @@ class ContactModel extends Model
     public function delete($id)
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
-        $query = "delete from adressen where id = $id";
+        $query = "delete from contact where id = $id";
         $this->f3->logger->addDebug($query);
         return $this->conn->db->exec($query);
     }
@@ -94,7 +94,7 @@ class ContactModel extends Model
     public function findAll()
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
-        $query = 'select * from adressen order by lastname';
+        $query = 'select * from contact order by lastname';
         $this->f3->logger->addDebug($query);
         $result = $this->conn->db->query($query);
         $rows = [];
@@ -122,7 +122,7 @@ class ContactModel extends Model
     public function findById($id)
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
-        $query = "select * from adressen where id = $id";
+        $query = "select * from contact where id = $id";
         $this->f3->logger->addDebug($query);
         return $this->conn->db->querySingle($query, true);
     }

@@ -56,8 +56,8 @@ class Controller extends AbstractController
         $f3->logger->addDebug(__METHOD__, func_get_args());
         $filter = 'POST' === $f3->get('VERB') ? $f3->get('POST.filter') : [];
         $rows   = $f3->get('model')->findByFilter($filter);
-        $f3->set('headline.h1', 'Address manager');
-        $f3->set('headline.h2', 'View addresses');
+        $f3->set('headline.h1', 'Contact manager');
+        $f3->set('headline.h2', 'View contacts');
         $f3->set('rows', $rows);
         $f3->set('partial', 'html/index.phtml');
     }
@@ -85,8 +85,8 @@ class Controller extends AbstractController
                 throw new Exception('could not update database');
             }
         }
-        $f3->set('headline.h1', 'Address manager');
-        $f3->set('headline.h2', 'View address');
+        $f3->set('headline.h1', 'Contact manager');
+        $f3->set('headline.h2', 'View contact');
         $f3->set('row', $row);
         $f3->set('partial', 'html/form.phtml');
     }

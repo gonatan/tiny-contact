@@ -23,14 +23,9 @@ class Sqlite implements DatabaseConnection
     {
         $f3->logger->addDebug(__METHOD__, func_get_args());
         $this->f3 = $f3;
-        if (is_readable($filename)) {
+        if (is_file($filename)) {
             $this->db = new SQLite3($filename, SQLITE3_OPEN_READWRITE);
         } else {
-            if (is_file($filename)) {
-                throw new Exception("$filename exists but is not readable");
-            }
-            $filename = "$filename";
-            $f3->logger->addDebug($filename);
             $this->db = new SQLite3($filename, SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE);
             $this->setup();
         }
@@ -58,8 +53,7 @@ class Sqlite implements DatabaseConnection
     public function setup()
     {
         $this->f3->logger->addDebug(__METHOD__, func_get_args());
-        $query = "-- create database
-        CREATE TABLE IF NOT EXISTS `adressen` (
+        $query = "CREATE TABLE `contact` (
             `id`	INTEGER,
             `lastname`	TEXT,
             `firstname`	TEXT,
@@ -70,8 +64,7 @@ class Sqlite implements DatabaseConnection
             `city`	TEXT,
             `zip`	TEXT,
             PRIMARY KEY(`id`)
-        );
-        ";
+        );";
         $this->db->exec($query);
     }
 }

@@ -1,25 +1,25 @@
 <div class="column grid_1">
     <nav>
         <ul>
-            <li><a href="#" title="list addresses"><img src="ui/img/ico_address_list.png" alt="list addresses"></a></li>
+            <li><a href="#" title="list contacts"><img src="ui/img/ico_contact_list.png" alt="list contacts"></a></li>
             <?php if ($row['phone']) { ?>
-            <li><a href="tel:<?= $row['phone'] ?>" title="call phone"><img src="ui/img/ico_address_phone.png" alt="call phone"></a></li>
+            <li><a href="tel:<?= $row['phone'] ?>" title="call phone"><img src="ui/img/ico_contact_phone.png" alt="call phone"></a></li>
             <?php } ?>
             <?php if ($row['mobile']) { ?>
-            <li><a href="tel:<?= $row['mobile'] ?>" title="call mobile"><img src="ui/img/ico_address_mobile.png" alt="call mobile"></a></li>
+            <li><a href="tel:<?= $row['mobile'] ?>" title="call mobile"><img src="ui/img/ico_contact_mobile.png" alt="call mobile"></a></li>
             <?php } ?>
             <?php if ($row['email']) { ?>
-            <li><a href="mailto:<?= $row['email'] ?>" title="write email"><img src="ui/img/ico_address_mail.png" alt="write email"></a></li>
+            <li><a href="mailto:<?= $row['email'] ?>" title="write email"><img src="ui/img/ico_contact_mail.png" alt="write email"></a></li>
             <?php } ?>
             <?php if ($row['id']) { ?>
-            <li><a href="vcard/<?= $row['id'] ?>" title="download vCard"><img src="ui/img/ico_address_vcard.png" alt="download vCard"></a></li>
-            <li><a href="api/<?= $row['id'] ?>" title="get REST"><img src="ui/img/ico_address_rest.png" alt="get REST"></a></li>
+            <li><a href="vcard/<?= $row['id'] ?>" title="download vCard"><img src="ui/img/ico_contact_vcard.png" alt="download vCard"></a></li>
+            <li><a href="api/<?= $row['id'] ?>" title="get REST"><img src="ui/img/ico_contact_rest.png" alt="get REST"></a></li>
             <?php } ?>
         </ul>
     </nav>
 </div>
 
-<form class="column grid_11 address" action="form/<?= $row['id'] ?>" method="POST">
+<form class="column grid_11 contact" action="form/<?= $row['id'] ?>" method="POST">
     <table>
         <tr>
             <th class="label">key</th>

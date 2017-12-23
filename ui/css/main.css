@@ -32,14 +32,14 @@ td, th {
     vertical-align: top;
 }
 
-form.address table {
+form.contact table {
     width: 100%;
 }
-form.address table th.label,
-form.address table td.label {
+form.contact table th.label,
+form.contact table td.label {
     text-align: right;
 }
-form.address table input {
+form.contact table input {
     width: 90%;
 }
 form label {
